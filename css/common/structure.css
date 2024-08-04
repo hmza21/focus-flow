@@ -1,0 +1,49 @@
+/* 
+
+Styling for header and footer.
+
+*/
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(to right, rgba(29, 37, 183, 0.582), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+    position: relative;
+    height: 8vh;
+}
+
+nav > ul > li {
+    display: inline;
+    margin-right: 1em;
+}
+
+nav > ul > li > a {
+    text-decoration: none;
+    color: rgb(184, 94, 225);
+}
+
+nav > ul > li > a:hover {
+    text-decoration: none;
+    color: rgb(210, 173, 226);
+}
+
+main {
+    height: 84vh;
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    position: relative;
+    height: 8vh;
+    color: rgb(184, 94, 225);
+    background: linear-gradient(to left, rgba(80, 20, 125, 0.582), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+}
+
+footer > p {
+    margin: 0 1em;
+}

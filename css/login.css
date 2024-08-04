@@ -1,0 +1,26 @@
+h2 {
+    width: 100%;
+}
+
+form {
+    width: 100%;
+    /* margin-bottom: 1em; */
+}
+
+form > input {
+    display: inline-block;
+    /* text-align: center; */
+    font-size: 1.2em;
+    font-weight: 200;
+    padding: 0.5em 1em;
+    margin-bottom: 1em;
+    border: 2px solid #781ab3;
+    border-radius: 0.5em;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: #ffffff;
+}
+
+::placeholder {
+    color: #c1a1d5;
+}

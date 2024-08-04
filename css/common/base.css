@@ -1,0 +1,52 @@
+/*
+
+Base file for all pages.
+
+*/
+
+/* Fonts* */
+
+@font-face {
+    font-family: 'Roundo';
+    src: url('/assets/fonts/roundo/Roundo-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('/assets/fonts/Inter/Inter-VariableFont.ttf') format('truetype');
+}
+
+/* Reset and fixes */
+
+html, body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+    font-family: 'Roundo';
+}
+
+*, *::before, *::after {
+    box-sizing: inherit;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+input[type="text"], input[type="password"], input[type="email"], button, a {
+    outline: none;
+}
+
+button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    cursor: pointer;
+    outline: none;
+}
