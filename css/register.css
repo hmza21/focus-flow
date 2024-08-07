@@ -4,31 +4,28 @@ h2 {
 
 form {
     width: 100%;
-    /* margin-bottom: 1em; */
 }
 
 input {
     display: inline-block;
-    /* text-align: center; */
     font-size: 1.2em;
     font-weight: 200;
-    padding: 0.5em 1em;
+    padding: 10px 15px;
     margin-bottom: 1em;
-    border: 2px solid #781ab3;
-    border-radius: 0.5em;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
+    background-color: transparent;
+    color: var(--foreground);
 }
 
 ::placeholder {
-    color: #c1a1d5;
+    color: var(--tertiary-foreground);
 }
 
 .field-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 1em;
+    gap: 15px;
     width: 100%;
-    /* margin-bottom: 1em; */
 }

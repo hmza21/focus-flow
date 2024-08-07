@@ -18,27 +18,26 @@ Styling for the landing, login and registration pages.
 }
 
 main {
-    position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr;
-    gap: 3em;
-    padding: 1.5em 0;
+    gap: 45px;
+    padding: 45px 0;
 }
 
-main > section {
+main section {
     position: relative;
     height: 100%;
-    color: white;
+    color: var(--foreground);
 }
 
-main > section:first-child {
-    filter: drop-shadow(0 0 10px rgba(123, 24, 180, 0.7));
+main section:first-child {
+    border-radius: 0 20px 20px 0;
+    filter: drop-shadow(0 0 10px var(--shadow));
 }
 
-main > section:last-child {
+main section:last-child {
     border-radius: 20px 0 0 20px;
-    filter: drop-shadow(0 0 10px rgba(123, 24, 180, 0.7));
+    filter: drop-shadow(0 0 10px var(--shadow));
 }
 
 #logo {
@@ -71,36 +70,40 @@ main > section:last-child {
     justify-content: center;
     align-items: center;
     align-items: center;
-    padding: 0 8em;
-    background-color: rgba(0, 0, 0, 0.666);
+    padding: 0 120px;
+    background-color: var(--panel);
 }
 
-#main > div {
+.button-container {
     width: 100%;
 }
 
 .btn {
-    display: inline-block;
+    display: block;
     text-align: center;
     font-size: 1.2em;
     font-weight: 200;
-    padding: 0.5em 1em;
-    margin-bottom: 1em;
+    padding: 10px 15px;
+    margin-top: 15px;
     border: 0;
     font-family: inherit;
-    border-radius: 0.5em;
+    border-radius: 10px;
     width: 100%;
 }
 
-#reg {
-    background-color: #781ab3;
-    color: white;
+.primary-btn {
+    /* width: 100%; */
+    background-color: var(--primary);
 }
 
-#log {
-    border: 2px solid #781ab3;
+.paragraph {
+    color: var(--secondary-foreground);
 }
 
-input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, button:focus, a:focus {
-    border: 2px solid #e2b3ff;
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border: 2px solid var(--tertiary-foreground);
+}
+
+::placeholder {
+    color: var(--tertiary-foreground);
 }

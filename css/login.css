@@ -4,23 +4,24 @@ h2 {
 
 form {
     width: 100%;
-    /* margin-bottom: 1em; */
 }
 
-form > input {
+form input {
     display: inline-block;
-    /* text-align: center; */
     font-size: 1.2em;
     font-weight: 200;
-    padding: 0.5em 1em;
-    margin-bottom: 1em;
-    border: 2px solid #781ab3;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border: 2px solid var(--primary);
     border-radius: 0.5em;
     width: 100%;
     background-color: rgba(0, 0, 0, 0);
-    color: #ffffff;
+    color: var(--primary-foreground);
 }
 
-::placeholder {
-    color: #c1a1d5;
+.field-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
 }

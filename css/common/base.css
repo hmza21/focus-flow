@@ -4,6 +4,21 @@ Base file for all pages.
 
 */
 
+/* Variables */
+
+:root {
+    --foreground: #ebebeb;
+    --secondary-foreground: rgb(184, 94, 225);
+    --tertiary-foreground: #e2b3ff;
+    --primary: #781ab3;
+    --background: #000000;
+    --panel: rgba(0, 0, 0, 0.666);
+    --border: #946bc9b0;
+    --shadow: rgba(175, 36, 255, 0.364);
+    --blue-gradient: linear-gradient(to right, rgba(29, 37, 183, 0.582), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+    --purple-gradient: linear-gradient(to left, rgba(80, 20, 125, 0.582), rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0.0));
+}
+
 /* Fonts* */
 
 @font-face {
