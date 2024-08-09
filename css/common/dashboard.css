@@ -4,36 +4,22 @@ Styling for all application pages: tasks, today, list, and notes.
 
 */
 
-* {
-    font-family: 'Roundo';
-}
-
-html {
+html, body {
     background-color: black;
-    color: white;
-}
-
-body {
-    position: relative;
-}
-
-#bg {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    z-index: 0;
-}
-
-main * {
-    z-index: 1;
+    font-family: 'Roundo';
 }
 
 main {
     display: flex;
     flex-direction: row;
-    padding: 30px 0;
-    gap: 30px;
+    padding: 2em 0;
+    gap: 2em;
+    height: 100vh;
+    color: white;
+}
+
+main > * {
+    z-index: 1;
 }
 
 section {
@@ -41,5 +27,137 @@ section {
 }
 
 .sidebar {
-    border: 2px solid red;
+    padding: 1em;
+    background-color: rgba(0, 0, 0, 0.666);
+    border: 1px solid #946bc9b0;
+    filter: drop-shadow(0 0 10px rgba(175, 36, 255, 0.548));
+}
+
+#left {
+    border-radius: 0 20px 20px 0;
+    border-left: 0;
+    width: 20em;
+}
+
+#right {
+    border-radius: 20px 0 0 20px;
+    flex-grow: 1;
+    border-right: 0;
+}
+
+#middle-section {
+    flex-grow: 2;
+}
+
+#background {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* filter: blur(5px); */
+    z-index: 0;
+    object-fit: cover;
+}
+
+#logo {
+    margin: 0;
+    display: inline-block;
+    font-family: Roundo;
+    font-weight: bold;
+}
+
+.left-btn {
+    height: 1.5em;
+    width: 1.5em;
+    margin: 0;
+    padding: 0;
+    filter: invert(1);
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+input[type="text"], input[type="search"], .section-list > button, textarea, select {
+    width: 100%;
+    height: 3em;
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 0.5em;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #753f896a;
+    padding: 0 1em;
+    margin-bottom: 1em;
+    color: white;
+}
+
+option {
+    background-color: rgba(55, 12, 62, 0.5); /* Background color */
+    color: white; /* Text color */
+    border: none; /* Remove default border */
+    padding: 0.5em; /* Padding inside the option */
+}
+
+textarea {
+    width: 100%;
+    height: 8em;
+    resize: none;
+    font-family: inherit;
+    font-size: 14px;
+    padding: 0.5em 1em;
+}
+
+.section-list > button {
+    display: flex;
+    justify-content: space-between;
+    height: 2.2em;
+    margin-bottom: 0.5em;
+    text-align: left;
+    align-items: center;
+    padding: 0.5em;
+}
+
+.section-list > button > div {
+    display: flex;
+    align-items: center;
+}
+
+.btn-icon {
+    height: 100%;
+    width: 1em;
+    margin: 0 0.2em;
+    margin-right: 0.7em;
+    filter: invert(1);
+}
+
+.btn-text {
+    height: 100%;
+    font-size: 0.9em;
+}
+
+.counter {
+    background-color: #828282;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    font-size: 0.8em;
+    /* margin-left: 0.5em; */
+}
+
+.labelled-btn {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* padding: 0.5em; */
+    /* margin-bottom: 1em; */
+}
+
+.labelled-btn > label {
+    margin-bottom: 1em;
+    width: 8em;
+    font-size: 0.8em;
 }

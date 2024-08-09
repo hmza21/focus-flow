@@ -4,43 +4,37 @@ Styling for the landing, login and registration pages.
 
 */
 
-#wallpaper {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    width: 100%;
-    height: 100%;
-    filter: blur(10px);
-    object-fit: cover;
-    z-index: 0;
-}
-
-main {
+#content {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 45px;
     padding: 45px 0;
 }
 
-main section {
+#content section {
     position: relative;
     height: 100%;
     color: var(--foreground);
 }
 
-main section:first-child {
+#content section:first-child {
     border-radius: 0 20px 20px 0;
     filter: drop-shadow(0 0 10px var(--shadow));
 }
 
-main section:last-child {
+#main {
     border-radius: 20px 0 0 20px;
     filter: drop-shadow(0 0 10px var(--shadow));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    padding: 0 120px;
+    background-color: var(--panel);
 }
 
-#logo {
+.logo {
     position: absolute;
     top: 0;
     left: 0;
@@ -52,56 +46,67 @@ main section:last-child {
     font-size: 3em;
 }
 
-#bg {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    border-radius: 0 20px 20px 0;
-    object-fit: cover;
-}
-
-#main {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-items: center;
-    padding: 0 120px;
-    background-color: var(--panel);
-}
-
 .button-container {
     width: 100%;
 }
 
-.btn {
+.large-btn {
     display: block;
     text-align: center;
     font-size: 1.2em;
     font-weight: 200;
     padding: 10px 15px;
     margin-top: 15px;
-    border: 0;
-    font-family: inherit;
     border-radius: 10px;
     width: 100%;
 }
 
+.large-btn:hover {
+    background-color: var(--secondary);
+}
+
 .primary-btn {
-    /* width: 100%; */
     background-color: var(--primary);
 }
 
 .paragraph {
-    color: var(--secondary-foreground);
+    font-family: Inter-Bold;
+    font-size: 1.2em;
+    font-weight: 100;
+    margin-bottom: 30px;
+    padding: 0;
 }
 
 input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
     border: 2px solid var(--tertiary-foreground);
+}
+
+.field-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    width: 100%;
+}
+
+h2 {
+    width: 100%;
+}
+
+input {
+    display: inline-block;
+    font-size: 1.2em;
+    font-weight: 200;
+    padding: 10px 15px;
+    margin-bottom: 1em;
+    border: 2px solid var(--primary);
+    border-radius: 10px;
+    width: 100%;
+    background-color: transparent;
+    color: var(--foreground);
+}
+
+form {
+    width: 100%;
 }
 
 ::placeholder {

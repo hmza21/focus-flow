@@ -4,36 +4,20 @@ Styling for header and footer.
 
 */
 
-header {
+#default-header, #default-footer {
+    font-family: Roundo;
+}
+#default-header {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     background: var(--blue-gradient);
     position: relative;
-    height: 60px;
+    height: 8vh;
 }
 
-nav ul li {
-    display: inline;
-    margin-right: 15px;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: var(--secondary-foreground);
-}
-
-nav ul li a:hover {
-    text-decoration: none;
-    color: var(--tertiary-foreground);
-}
-
-main {
-    height: 84vh;
-}
-
-footer {
+#default-footer {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -45,6 +29,25 @@ footer {
     background: var(--purple-gradient);
 }
 
-footer > p {
+#default-header li {
+    display: inline;
+    margin-right: 15px;
+}
+
+#default-header a {
+    text-decoration: none;
+    color: var(--secondary-foreground);
+}
+
+#default-header a:hover {
+    text-decoration: none;
+    color: var(--tertiary-foreground);
+}
+
+#content {
+    height: 84vh;
+}
+
+#default-footer p {
     margin: 0 15px;
 }
