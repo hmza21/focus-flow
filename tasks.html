@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/dashboard.css">
-  <link rel="stylesheet" href="css/tasks.css">
+  <!-- <link rel="stylesheet" href="css/tasks.css"> -->
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <title>Tasks - Focus Flow</title>
 
@@ -17,9 +19,9 @@
 
 <body>
   
-  <img src="assets/images/bg_3.jpg" alt="Background" id="bg">
+  <img src="assets/images/bg_3.jpg" alt="Background" id="background">
   
-  <header>
+  <header id="default-header">
 
     <nav>
       <ul>
@@ -32,24 +34,24 @@
 
   </header>
 
-  <main>
+  <main id=content>
 
-    <section class="sidebar">
+    <section class="sidebar" id="left">
 
       <div class="top">
-        <h3 id="logo">Focus Flow</h3>
+        <h3 class="section-header">Focus Flow</h3>
         <!-- <button action=""><img class="left-btn" src="assets/icons/menu.svg"></button> -->
       </div>
 
       <div>
-        <input type="search" name="search" id="search" placeholder="🔍 Search">
+        <input type="search" name="search" id="search" placeholder="🔍 Search" class="text-field">
       </div>
         
       <div class="section-list">
         
         <h5>TASKS</h5>
 
-        <button>
+        <button class="selected-btn">
         
           <div>
             <img src="assets/icons/right-cheveron.png" class="btn-icon">
@@ -139,9 +141,9 @@
 
         <h5>TAGS</h5>
 
-        <button>Tag 1</button>
-        <button>Tag 2</button>
-        <button>+ Add Tag</button>
+        <button class="tag">Tag 1</button>
+        <button class="tag">Tag 2</button>
+        <button class="add-tag">+ Add Tag</button>
 
       </div>
     
@@ -149,59 +151,27 @@
 
     <section id="middle">
       
-      <h2>All Tasks</h2>
-      <p>2</p>
+      <div class="top">
+        <h2 class="section-header">All Tasks</h2>
+        <p class="counter">2</p>
+      </div>
 
       <form action="" method="post">
-        <input type="text" name="add task" placeholder="+ Add task">
+        <input type="text" name="add task" placeholder="+ Add task" class="text-field">
       </form>
 
       <div>
         
         <div>
         
-          <input type="checkbox" name="task 1">
-          <label for="task 1">Task</label>
+          <div class="task-head">
+            <div class="check-grp">
+              <input type="checkbox" name="task 1">
+              <label for="task 1">Task</label>
+            </div>
+            <button class="task-details">></button>
+          </div>
 
-          <form action="get">
-            <button>></button>
-          </form>
-        
-          <br>
-
-          <p>22-3-2024 | 1 Subtasks | Personal | Tag 1, Tag 2</p>
-
-          <hr>
-
-        </div>
-
-        <div>
-        
-          <input type="checkbox" name="task 1">
-          <label for="task 1">Task</label>
-
-          <form action="get">
-            <button>></button>
-          </form>
-        
-          <br>
-
-          <p>22-3-2024 | 1 Subtasks | Personal | Tag 1, Tag 2</p>
-
-          <hr>
-
-        </div>
-
-        <div>
-        
-          <input type="checkbox" name="task 1">
-          <label for="task 1">Task</label>
-
-          <form action="get">
-            <button>></button>
-          </form>
-        
-          <br>
 
           <p>22-3-2024 | 1 Subtasks | Personal | Tag 1, Tag 2</p>
 
@@ -214,27 +184,24 @@
     </section>
 
     <section class="sidebar" id="right">
-
-      <div class="top">
-        
-        <button><img class="left-btn" src="assets/icons/cross.png"></button>
-        
-      </div>
       
       <div>
         <form action="" method="post">
-    
-          <input type="text" name="task name" placeholder="Task Name">
-          <textarea name="task description" placeholder="Description"></textarea></textarea>
+          
+          <div class="top">
+            <button><img class="left-btn" src="assets/icons/cross.png"></button>
+            <input type="text" name="taskname" placeholder="Task Name" class="text-field">
+          </div>
+          <textarea name="task description" placeholder="Description" class="text-field large-field"></textarea></textarea>
 
           <div class="labelled-btn">
             <label for="due date">Due Date</label>
-            <input type="date" name="due date" id="due date">
+            <input type="date" class="small-input" name="due date" id="due date">
           </div>
           
           <div class="labelled-btn">
             <label for="dropdown">List</label>
-            <select id="dropdown" name="dropdown">
+            <select class="small-input" id="dropdown" name="dropdown">
                 <option value="option1">Personal</option>
                 <option value="option2">Work</option>
                 <option value="option3">List 1</option>
@@ -242,29 +209,35 @@
           </div>
 
           <label>Tags</label>
-          <button>Tag 1</button>
-          <button>Tag 2</button>
-          <button>+ Add tag</button>
+          <button class="tag">Tag 1</button>
+          <button class="tag">Tag 2</button>
+          <button class="add-tag">+ Add tag</button>
         
         </form>
       </div>
 
       <div>
 
-        <h5>Subtasks</h5>
+        <h5>SUBTASKS</h5>
         
         <form action="" method="post">
-          <input type="text" name="add subtask" id="add subtask" placeholder="+ Add subtask">
+          <input type="text" name="add subtask" placeholder="+ Add subtask" class="text-field">
         </form>
 
-        <input type="checkbox" name="subtask 1">
-        <label for="subtask 1">Subtask</label><br>
+        <div class="check-grp">
+          <input type="checkbox" name="subtask 1">
+          <label for="subtask 1">Subtask</label><br>
+        </div>
         
-        <input type="checkbox" name="subtask 1">
-        <label for="subtask 1">Subtask</label><br>
+        <div class="check-grp">
+          <input type="checkbox" name="subtask 1">
+          <label for="subtask 1">Subtask</label><br>
+        </div>
         
-        <input type="checkbox" name="subtask 1">
-        <label for="subtask 1">Subtask</label><br>
+        <div class="check-grp">
+          <input type="checkbox" name="subtask 1">
+          <label for="subtask 1">Subtask</label><br>
+        </div>
 
       </div>
       
@@ -272,7 +245,7 @@
 
   </main>
 
-  <footer>
+  <footer id="default-footer">
 
     <p>All Rights Reserved © 2024</p>
     <p>Developed by: Hamza Khattab</p>

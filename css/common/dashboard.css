@@ -4,18 +4,13 @@ Styling for all application pages: tasks, today, list, and notes.
 
 */
 
-html, body {
-    background-color: black;
-    font-family: 'Roundo';
-}
-
 main {
     display: flex;
     flex-direction: row;
-    padding: 2em 0;
-    gap: 2em;
+    padding: 30px 0;
+    gap: 40px;
     height: 100vh;
-    color: white;
+    color: var(--foreground);
 }
 
 main > * {
@@ -24,29 +19,58 @@ main > * {
 
 section {
     overflow: scroll;
+    scrollbar-width:none;
+}
+
+.section-list button {
+    width: 100%;
+    height: 45px;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: var(--foreground);
+}
+
+.section-list button:hover {
+    background-color: var(--secondary);
+}
+
+.selected-btn {
+    background-color: var(--secondary) !important;
+}
+
+.selected-btn:hover {
+    background-color: var(--primary) !important;
 }
 
 .sidebar {
-    padding: 1em;
-    background-color: rgba(0, 0, 0, 0.666);
-    border: 1px solid #946bc9b0;
-    filter: drop-shadow(0 0 10px rgba(175, 36, 255, 0.548));
+    padding: 15px;
+    background-color: var(--panel);
+    border: 1px solid var(--border);
+    filter: drop-shadow(0 0 10px var(--shadow));
 }
 
 #left {
     border-radius: 0 20px 20px 0;
     border-left: 0;
-    width: 20em;
+    flex-grow: 1;
+    /* padding-left: 30px; */
 }
 
 #right {
     border-radius: 20px 0 0 20px;
-    flex-grow: 1;
+    flex-grow: 2;
     border-right: 0;
+    /* padding-right: 30px; */
 }
 
-#middle-section {
+#middle {
     flex-grow: 2;
+    background-color: rgba(38, 0, 60, 0.95);
+    padding: 20px;
+    border-radius: 20px;
 }
 
 #background {
@@ -60,16 +84,15 @@ section {
     object-fit: cover;
 }
 
-#logo {
+.section-header {
     margin: 0;
     display: inline-block;
     font-family: Roundo;
-    font-weight: bold;
 }
 
 .left-btn {
-    height: 1.5em;
-    width: 1.5em;
+    height: 25px;
+    width: 25px;
     margin: 0;
     padding: 0;
     filter: invert(1);
@@ -77,48 +100,49 @@ section {
 
 .top {
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
-    margin-bottom: 1em;
+    margin-bottom: 15px;
+    gap: 15px;
 }
 
-input[type="text"], input[type="search"], .section-list > button, textarea, select {
+.text-field {
     width: 100%;
-    height: 3em;
-    background-color: rgba(0, 0, 0, 0);
-    border-radius: 0.5em;
+    height: 45px;
+    background-color: #00000036;
+    border-radius: 10px;
     border: 0;
     outline: 0;
-    border-bottom: 2px solid #753f896a;
-    padding: 0 1em;
-    margin-bottom: 1em;
-    color: white;
+    border-bottom: 2px solid var(--border);
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: var(--foreground);
 }
 
 option {
-    background-color: rgba(55, 12, 62, 0.5); /* Background color */
-    color: white; /* Text color */
-    border: none; /* Remove default border */
-    padding: 0.5em; /* Padding inside the option */
+    background-color: var(--primary);
+    color: var(--foreground);
+    border: none;
+    padding: 10px;
 }
 
-textarea {
+.large-field {
     width: 100%;
-    height: 8em;
+    height: 120px;
     resize: none;
     font-family: inherit;
-    font-size: 14px;
-    padding: 0.5em 1em;
+    font-size: 0.8em;
+    padding: 10px 15px;
 }
 
 .section-list > button {
     display: flex;
     justify-content: space-between;
-    height: 2.2em;
-    margin-bottom: 0.5em;
+    height: 35px;
+    margin-bottom: 10px;
     text-align: left;
     align-items: center;
-    padding: 0.5em;
+    padding: 10px;
 }
 
 .section-list > button > div {
@@ -128,9 +152,9 @@ textarea {
 
 .btn-icon {
     height: 100%;
-    width: 1em;
-    margin: 0 0.2em;
-    margin-right: 0.7em;
+    width: 15px;
+    margin: 0 5px;
+    margin-right: 12px;
     filter: invert(1);
 }
 
@@ -140,24 +164,86 @@ textarea {
 }
 
 .counter {
-    background-color: #828282;
-    color: white;
-    border-radius: 50%;
-    padding: 0.2em 0.5em;
-    font-size: 0.8em;
+    background-color: var(--secondary);
+    color: var(--tertiary-foreground);
+    border-radius: 30%;
+    padding: 2px 9px;
+    font-size: 0.9em;
     /* margin-left: 0.5em; */
 }
 
 .labelled-btn {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    /* padding: 0.5em; */
-    /* margin-bottom: 1em; */
+    align-items: baseline;
+    margin-bottom: 15px;
 }
 
 .labelled-btn > label {
-    margin-bottom: 1em;
-    width: 8em;
-    font-size: 0.8em;
+    margin-right: 15px;
+    font-size: 0.9em;   
+}
+
+.small-input {
+    height: 35px;
+    background-color: #00000036;
+    border-radius: 10px;
+    border: 0;
+    outline: 0;
+    padding: 0 15px;
+    margin-bottom: 15px;
+    color: var(--foreground);
+}
+
+.tag {
+    background-color: var(--secondary);
+    color: var(--tertiary-foreground);
+    border-radius: 10px;
+    padding: 2px 9px;
+    font-size: 0.9em;
+    margin-right: 5px;
+}
+
+.add-tag {
+    /* background-color: var(--secondary); */
+    color: var(--tertiary-foreground);
+    border-radius: 10px;
+    padding: 2px;
+    font-size: 0.9em;
+}
+
+input[type="checkbox"]:checked {
+    background-color: var(--secondary);
+    border: 2px solid var(--secondary);
+}
+
+input[type="checkbox"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 6px;
+    width: 6px;
+    height: 12px;
+    border: solid var(--tertiary-foreground);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.check-grp {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.task-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;    
+}
+
+.task-details {
+    color: var(--secondary-foreground);
+    margin-right: 10px;
+    width: 30px;
+    height: 20px;
 }
