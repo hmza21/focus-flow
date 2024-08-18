@@ -5,8 +5,8 @@ Styling for all application pages: tasks, today, list, and notes.
 */
 
 main {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: 2fr 3fr 3fr;
     padding: 30px 0;
     gap: 40px;
     height: 100vh;
@@ -19,7 +19,7 @@ main > * {
 
 section {
     overflow: scroll;
-    scrollbar-width:none;
+    scrollbar-width: none;
 }
 
 .section-list button {
@@ -55,13 +55,13 @@ section {
 #left {
     border-radius: 0 20px 20px 0;
     border-left: 0;
-    flex-grow: 1;
+    /* flex-grow: 1; */
     /* padding-left: 30px; */
 }
 
 #right {
     border-radius: 20px 0 0 20px;
-    flex-grow: 2;
+    /* flex-grow: 2; */
     border-right: 0;
     /* padding-right: 30px; */
 }
@@ -172,15 +172,16 @@ option {
     /* margin-left: 0.5em; */
 }
 
-.labelled-btn {
+.labelled-input {
     display: flex;
     align-items: baseline;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
-.labelled-btn > label {
+.labelled-input label {
     margin-right: 15px;
-    font-size: 0.9em;   
+    text-transform: uppercase;
+    font-size: 0.8em;   
 }
 
 .small-input {
@@ -190,7 +191,7 @@ option {
     border: 0;
     outline: 0;
     padding: 0 15px;
-    margin-bottom: 15px;
+    /* margin-bottom: 15px; */
     color: var(--foreground);
 }
 
@@ -199,7 +200,7 @@ option {
     color: var(--tertiary-foreground);
     border-radius: 10px;
     padding: 2px 9px;
-    font-size: 0.9em;
+    font-size: 0.7em;
     margin-right: 5px;
 }
 
@@ -234,16 +235,51 @@ input[type="checkbox"]:checked::after {
     gap: 10px;
 }
 
+.task {
+    margin-top: 10px;
+}
+
 .task-head {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;    
+    height: 30px;
 }
 
 .task-details {
     color: var(--secondary-foreground);
-    margin-right: 10px;
+    margin: 0 10px;
     width: 30px;
     height: 20px;
+}
+
+.task-data {
+    padding: 0 35px;
+}
+
+.task-data p {
+    display: inline-block;
+    border-radius: 10px;
+    padding: 3px 8px;
+    font-size: 0.7em;
+    color: var(--tertiary-foreground);
+    background-color: var(--secondary);
+    margin-right: 5px;
+}
+
+.panel-background {
+    width: 100%;
+    height: 100%;
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.panel-background img {
+    position: absolute;
+    filter: invert(1);
+    fill: var(--secondary);
+    opacity: 1;
+    width: 100px;
+    height: 100px;
 }
