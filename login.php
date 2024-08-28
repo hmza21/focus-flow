@@ -12,7 +12,10 @@ else if (isset($_POST['login'])) {
   $password = $_REQUEST['password'];
 
   $query = "SELECT * FROM account WHERE email = '$email'";
-  $user = sql_select($pdo, $query)[0];
+  $users = sql_select($pdo, $query);
+
+  if ($users != null) $user = $users[0];
+  else $user = null;
 
   if (!$user) echo "<script>alert('Email is not registered.')</script>";
 
@@ -20,7 +23,7 @@ else if (isset($_POST['login'])) {
     
     $_SESSION['email'] = $user['email'];
     header('Location: dashboard.php');
-
+    
   } else echo "<script>alert('Password is incorrect.')</script>";
   
 }

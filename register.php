@@ -15,7 +15,10 @@ else if (isset($_POST['register'])) {
   $confirm_password = $_REQUEST['confirm_password'];
 
   $query = "SELECT * FROM account WHERE email = '$email'";
-  $user = sql_select($pdo, $query);
+  $users = sql_select($pdo, $query);
+
+  if ($users != null) $user = $users[0];
+  else $user = null;
 
   if (!$user) {
     
