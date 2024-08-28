@@ -1,15 +1,64 @@
 <?php
 
 require 'components/connect.php';
+require 'components/functions.php';
 session_start();
 
+$is_notes = true;
+
+if (!isset($_SESSION['email'])) header('Location: login.php');
+else $email = $_SESSION['email'];
+
+$query = "SELECT * FROM list WHERE owner = '$email'";
+$lists = sql_select($pdo, $query);
+
+$query = "SELECT * FROM tag WHERE owner = '$email'";
+$tags = sql_select($pdo, $query);
+
+if (isset($_SESSION['task_details'])) {
+  unset($_SESSION['task_id']);
+  unset($_SESSION['task_details']);
+}
+  
+$list = ['name' => 'Sticky Notes'];
+
+$query = "SELECT * FROM task
+LEFT JOIN list ON task.list_id = list.id
+WHERE list.owner = '$email'";
+$tasks = sql_select($pdo, $query);
+
+if (isset($_POST['add-note'])) {
+
+  $title = $_POST['note-title'];
+  $content = $_POST['note-content'];
+
+  if ($title != '') {
+
+    $query = "INSERT INTO note (owner, title, content) VALUES ('$email', '$title', '$content')";
+    sql_operation($pdo, $query);
+
+  }
+
+}
+
+if (isset($_POST['delete-note'])) {
+
+  $note_id = $_POST['note-id'];
+  $query = "DELETE FROM note WHERE id = $note_id";
+  sql_operation($pdo, $query);
+
+}
+
+$query = "SELECT * FROM note WHERE owner = '$email'";
+$notes = sql_select($pdo, $query);
+  
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-
+  
 <head>
-
+  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
@@ -17,31 +66,24 @@ session_start();
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/dashboard.css">
   <link rel="stylesheet" href="css/notes.css">
-
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+  
   <script src="js/common/dashboard.js"></script>
-
+  
   <title>Tasks - Focus Flow</title>
-
+  
 </head>
 
 <body>
-  
+    
   <img src="assets/images/bg_3.jpg" alt="Background" id="background">
   
-  <header id="default-header">
-
-    <nav>
-      <ul>
-        <li><a href="index.php">Home</a></li>
-        <li><a href="register.php">Register</a></li>
-        <li><a href="login.php">Login</a></li>
-        <li><a href="tasks.php">Dashboard</a></li>
-      </ul>
-    </nav>
-
-  </header>
+  <?php require 'components/header.php'; ?>
 
   <main id="content">
 
@@ -49,50 +91,24 @@ session_start();
 
       <div class="top">
         <h3 class="section-header">Focus Flow</h3>
+        <i class="bi bi-chevron-double-right"></i>
       </div>
 
       <div>
-        <input type="search" name="search" id="search" placeholder="🔍 Search" class="text-field">
+        <form action="#" method="get">
+          <input type="search" name="search" id="search" placeholder="🔍 Search" class="text-field">
+        </form>
       </div>
         
       <div class="section-list">
         
         <h5>TASKS</h5>
-
-        <button onclick="redirect('tasks.php')">
         
-          <div>
-            <img src="assets/icons/right-cheveron.png" class="btn-icon">
-            <span class="btn-text">All Tasks</span>
-          </div>
-        
-          <div>
-            <span class="counter">2</span>
-          </div>
-        
-        </button>
-        
-        <button onclick="redirect('today.php')">
-        
-          <div>
-            <img src="assets/icons/list.png" class="btn-icon">
-            <span class="btn-text">Today</span>
-          </div>
-        
-          <div>
-            <span class="counter">2</span>
-          </div>
-        
-        </button>
-        
-        <button onclick="redirect('notes.php')" class="selected-btn">
-        
-          <div>
-            <img src="assets/icons/note.png" class="btn-icon">
-            <span class="btn-text">Sticky Notes</span>
-          </div>
-        
-        </button>
+        <?php
+          list_button($pdo, 'dashboard.php', $list['name'], 'All Tasks', $is_notes);
+          list_button($pdo, 'dashboard.php?list=Today', $list['name'], 'Today', $is_notes);
+          list_button($pdo, 'notes.php', $list['name'], 'Sticky Notes', $is_notes);
+        ?>
 
       </div>
 
@@ -102,44 +118,13 @@ session_start();
 
         <h5>LISTS</h5>
 
-        <button onclick="redirect('tasks.php?list=Personal')">
-        
-          <div>
-            <img src="assets/icons/person.png" class="btn-icon">
-            <span class="btn-text">Personal</span>
-          </div>
-        
-          <div>
-            <span class="counter">2</span>
-          </div>
-        
-        </button>
-        
-        <button onclick="redirect('tasks.php?list=Work')">
-        
-          <div>
-            <img src="assets/icons/briefcase.png" class="btn-icon">
-            <span class="btn-text">Work</span>
-          </div>
-        
-          <div>
-            <span class="counter">2</span>
-          </div>
-        
-        </button>
-        
-        <button onclick="redirect('tasks.php?list=List+1')">
-        
-          <div>
-            <img src="assets/icons/folder.png" class="btn-icon">
-            <span class="btn-text">List 1</span>
-          </div>
-        
-          <div>
-            <span class="counter">2</span>
-          </div>
-        
-        </button>
+        <?php
+
+          foreach($lists as $a_list) {
+            list_button($pdo, 'dashboard.php?list='.$a_list['name'], $list['name'], $a_list['name'], $is_notes);
+          }
+
+        ?>
 
       </div>
 
@@ -149,9 +134,10 @@ session_start();
 
         <h5>TAGS</h5>
 
-        <button class="tag">Tag 1</button>
-        <button class="tag">Tag 2</button>
-        <button class="add-tag">+ Add Tag</button>
+        <div class="tag-container">
+          <?php foreach($tags as $a_tag) tag_button($a_tag['name']); ?>
+          <button class="add-tag">+</button>
+        </div>
 
       </div>
     
@@ -165,21 +151,13 @@ session_start();
 
       <div class="note-list">
 
-          <div class="note">
-            <h3 class="note-title">Title</h3>
-            <p class="note-content">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Cumque fuga veniam accusamus nam repellendus nostrum dolore facere labore magnam, autem, quod necessitatibus laborum nihil dolor sequi molestiae tempore sed tenetur!</p>
-            <button class="edit-note">✏️</button>
-          </div>
+        <?php
         
-        <div class="note-form">
-          <input type="text" name="note-title" id="note-title" placeholder="Title" class="small-input">
-          <textarea name="note-content" id="note-content" placeholder="Content" class="small-input"></textarea>
-          <button class="add-note">✔️</button>
-        </div>
-
-        <div class="create-note">
-          <button>➕</button>
-        </div>
+        foreach($notes as $note) note($note);
+        note_form();
+        note_create();
+        
+        ?>
 
       </div>
       
@@ -187,12 +165,9 @@ session_start();
 
   </main>
 
-  <footer id="default-footer">
+  <?php require 'components/footer.php'; ?>
 
-    <p>All Rights Reserved © 2024</p>
-    <p>Developed by: Hamza Khattab</p>
-
-  </footer>
+  <script src="js/notes.js"></script>
 
 </body>
 

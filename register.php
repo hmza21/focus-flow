@@ -4,7 +4,7 @@ require 'components/connect.php';
 require 'components/functions.php';
 session_start();
 
-if (isset($_SESSION['email'])) header('Location: tasks.php');
+if (isset($_SESSION['email'])) header('Location: register.php');
 
 else if (isset($_POST['register'])) {
 
@@ -28,7 +28,7 @@ else if (isset($_POST['register'])) {
       sql_operation($pdo, $query);
       
       $_SESSION['email'] = $email;
-      header('Location: tasks.php');
+      header('Location: dashboard.php');
       
     } else echo "<script>alert('Passwords do not match!')</script>";
 

@@ -31,8 +31,9 @@ function list_task_count(PDO &$pdo, String $list_name) {
   return (sql_select($pdo, $query))[0][0];
 }
 
-function list_button(PDO &$pdo, String $redirect, String $list_name, String $btn_text) {
+function list_button(PDO &$pdo, String $redirect, String $list_name, String $btn_text, $is_notes) {
 
+  if ($is_notes == true) $list_name = "Sticky Notes";
   $class = ($list_name === $btn_text) ? 'selected-btn' : '';
 
   if ($btn_text === "All Tasks") $count = all_task_count($pdo);
@@ -114,7 +115,7 @@ function task(PDO &$pdo, array $task) {
         <p><?php echo $subtask_count ?> Subtasks</p>
       <?php } ?>
       
-      <p>Personal</p>
+      <p><?php echo $list['name'] ?></p>
       
       <?php if ($tags !== []) { ?>
         <p>
@@ -155,11 +156,14 @@ function rightPanel(PDO $pdo, array $task) {
 
   <div class="panel-section">
     <form action="#" method="post" id="task-data-form">
+
+      <input type="hidden" name="delete_task_id" value="<?php echo $task[0] ?>">
     
       <div class="top">
         <button type="button" onclick="hidePanel()"><img class="left-btn" src="assets/icons/cross.png"></button>
         <input type="text" name="taskname" placeholder="Task Name" class="text-field" value="<?php echo $task_name ?>">
       </div>
+
       <textarea name="task description" placeholder="Description" class="text-field large-field"><?php echo $task_description ?></textarea>
 
       <div class="labelled-input">
@@ -212,6 +216,40 @@ function rightPanel(PDO $pdo, array $task) {
     
     <?php } ?>
 
+  </div>
+
+<?php }
+
+function note(array $note) {
+  
+  $title = $note['title'];
+  $content = $note['content'];
+  
+  ?>
+
+  <form class="note" action="#" method="post">
+    <h3 class="note-title"><?php echo $title ?></h3>
+    <p class="note-content"><?php echo $content ?></p>
+    <input type="hidden" value="<?php echo $note['id'] ?>" name="note-id">
+    <button type="submit" class="delete-note" name="delete-note">❌</button>
+  </form>
+
+<?php }
+
+function note_form() { ?>
+
+  <form id="note-form" action="#" method="post">
+    <input type="text" name="note-title" placeholder="Title" class="small-input">
+    <textarea name="note-content" placeholder="Content" class="small-input"></textarea>
+    <button type="submit" class="add-note" name="add-note">✔️</button>
+  </form>
+
+<?php }
+
+function note_create() { ?>
+
+  <div id="create-note">
+    <button type="button" onclick="showForm()">➕</button>
   </div>
 
 <?php }

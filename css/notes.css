@@ -15,7 +15,7 @@
     padding: 0 20px;
 }
 
-.note, .note-form {
+.note, #note-form {
     position: relative;
     display: inline-block;
     padding: 15px;
@@ -29,38 +29,29 @@
     flex-direction: column;
 }
 
-.note-title {
-    margin: 0;
-}
-
-.note-content {
-    margin: 5px 0 0 0;
-    font-size: 0.9em;
-    scrollbar-width: none;
-}
-
-.note-form {
+#note-form {
+    display: none;
     background-color: var(--panel);
     filter: drop-shadow(0 0 5px var(--shadow));
     border: 1px solid var(--border);
 }
 
-.note *, .note-form * {
+.note *, #note-form * {
     width: 100%;
 }
 
-.note-form input {
+#note-form input {
     margin-bottom: 10px;
 }
 
-.note-form textarea, .note p {
+#note-form textarea, .note p {
     height: 100%;
     overflow: scroll;
     resize: none;
     padding: 5px;
 }
 
-.note-form button, .note button {
+#note-form button, .note button {
     position: absolute;
     display: inline-block;
     background-color: var(--panel);
@@ -74,7 +65,7 @@
     font-size: 0.9em;
 }
 
-.create-note {
+#create-note {
     display: inline-block;
     display: flex;
     justify-content: center;
@@ -88,7 +79,11 @@
     width: 200px;
 }
 
-.create-note * {
+#create-note * {
     font-size: 4em;
     opacity: 0.5;
+}
+
+.note-title {
+    margin: 0;
 }

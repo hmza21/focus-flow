@@ -4,6 +4,8 @@ require 'components/connect.php';
 require 'components/functions.php';
 session_start();
 
+$is_notes = false;
+
 if (!isset($_SESSION['email'])) header('Location: login.php');
 else $email = $_SESSION['email'];
 
@@ -14,9 +16,9 @@ $query = "SELECT * FROM tag WHERE owner = '$email'";
 $tags = sql_select($pdo, $query);
 
 if (isset($_POST['task_id_check'])) {
-    
+  
   $task_id = $_POST['task_id_check'];
-    
+  
   $query = "UPDATE task SET is_completed = 1 - is_completed
   WHERE id = $task_id";
   sql_operation($pdo, $query);
@@ -48,14 +50,28 @@ if (isset($_POST['task_details'])) {
 }
 
 if (isset($_POST['save'])) {
+  
+  $task_id = $_POST['delete_task_id'];
   $name = $_POST['taskname'];
-  $description = $_POST['tas_description'];
+  $description = $_POST['task_description'];
   $due_date = $_POST['due_date'];
-  $list_name = $_POST['dropdown'];
+  $list_id = $_POST['dropdown'];
+
+  if ($due_date == '') {
+    $query = "UPDATE task SET name = '$name', description = '$description', list_id = $list_id WHERE id = $task_id";
+  } else {
+    $query = "UPDATE task SET name = '$name', description = '$description', due_date = '$due_date', list_id = $list_id WHERE id = $task_id";
+  }
+
+  sql_operation($pdo, $query);
+
 }
 
 if (isset($_POST['delete'])) {
-
+  $query = "DELETE FROM task WHERE id = ".$_POST['delete_task_id'];
+  sql_operation($pdo, $query);
+  unset($_SESSION['task_details']);
+  unset($_SESSION['task_id']);
 }
 
 if (isset($_GET['list'])) {
@@ -100,6 +116,28 @@ if (isset($_GET['list'])) {
   WHERE list.owner = '$email'";
   $tasks = sql_select($pdo, $query);
   
+}
+
+if (isset($_POST['add_task'])) {
+
+  $name = $_POST['add_task'];
+  if ($name != '') {
+    
+    if ($list['name'] == 'Today' || $list['name'] == '') {
+      $insert_query = "SELECT id FROM list WHERE owner = '$email' AND name = 'Personal'";
+      $new_task_list = sql_select($pdo, $insert_query)[0][0];
+    } else {
+      $new_task_list = $list['id'];
+    }
+    
+    if ($list['name'] == 'Today') $insert_query = "INSERT INTO task (name, list_id, due_date) VALUES ('$name', $new_task_list, CURDATE())";
+    else $insert_query = "INSERT INTO task (name, list_id) VALUES ('$name', $new_task_list)";
+    sql_operation($pdo, $insert_query);
+
+    $tasks = sql_select($pdo, $query);
+    
+  }
+
 }
 
 ?>
@@ -154,9 +192,9 @@ if (isset($_GET['list'])) {
         <h5>TASKS</h5>
         
         <?php
-          list_button($pdo, 'dashboard.php', $list['name'], 'All Tasks');
-          list_button($pdo, 'dashboard.php?list=Today', $list['name'], 'Today');
-          list_button($pdo, 'notes.php', $list['name'], 'Sticky Notes');
+          list_button($pdo, 'dashboard.php', $list['name'], 'All Tasks', $is_notes);
+          list_button($pdo, 'dashboard.php?list=Today', $list['name'], 'Today', $is_notes);
+          list_button($pdo, 'notes.php', $list['name'], 'Sticky Notes', $is_notes);
         ?>
 
       </div>
@@ -170,7 +208,7 @@ if (isset($_GET['list'])) {
         <?php
 
           foreach($lists as $a_list) {
-            list_button($pdo, 'dashboard.php?list='.$a_list['name'], $list['name'], $a_list['name']);
+            list_button($pdo, 'dashboard.php?list='.$a_list['name'], $list['name'], $a_list['name'], $is_notes);
           }
 
         ?>
@@ -211,7 +249,7 @@ if (isset($_GET['list'])) {
         </p>
       </div>
 
-      <form action="" method="post">
+      <form action="#" method="post">
         <input type="text" name="add task" placeholder="+ Add task" class="text-field">
       </form>
 
