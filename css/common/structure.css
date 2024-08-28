@@ -5,7 +5,7 @@ Styling for header and footer.
 */
 
 #default-header, #default-footer {
-    font-family: Roundo;
+    font-family: "Fredoka";
 }
 #default-header {
     display: flex;
@@ -48,6 +48,7 @@ Styling for header and footer.
     height: 84vh;
 }
 
-#default-footer p {
+#default-footer * {
     margin: 0 15px;
+    display: inline;
 }

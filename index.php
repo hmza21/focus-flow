@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +11,17 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/boarding.css">
   <!-- <link rel="stylesheet" href="css/index.css"> -->
   
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+
   <title>Focus Flow</title>
 
 </head>
@@ -19,24 +30,13 @@
   
   <img src="assets/images/bg_2.jpg" alt="Background" id="background">
   
-  <header id="default-header">
-
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="tasks.html">Dashboard</a></li>
-      </ul>
-    </nav>
-
-  </header>
+  <?php require 'components/header.php'; ?>
   
   <main id="content">
 
     <section>
       <img src="assets/images/bg_1.jpg" alt="Background" class="windowed-background">
-      <h1 class="logo"><a href="index.html">Focus Flow</a></h1>
+      <h1 class="logo"><a href="index.php">Focus Flow</a></h1>
     </section>
 
     <section id="main">
@@ -46,20 +46,15 @@
       <p class="paragraph">Focus Flow is a simple application with one mission: to boost productivity of its users. Sign up to try it now!</p>
       
       <div class="button-container">
-        <a href="register.html" class="large-btn primary-btn">Register</a>
-        <a href="login.html" class="large-btn secondary-btn">Login</a>
+        <a href="register.php" class="large-btn primary-btn">Register</a>
+        <a href="login.php" class="large-btn secondary-btn">Login</a>
       </div>
         
     </section>
 
   </main>
   
-  <footer id="default-footer">
-
-    <p>All Rights Reserved © 2024</p>
-    <p>Developed by: Hamza Khattab</p>
-
-  </footer>
+  <?php require 'components/footer.php'; ?>
 
 </body>
 

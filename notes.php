@@ -1,3 +1,10 @@
+<?php
+
+require 'components/connect.php';
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,10 +34,10 @@
 
     <nav>
       <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="register.html">Register</a></li>
-        <li><a href="login.html">Login</a></li>
-        <li><a href="tasks.html">Dashboard</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><a href="register.php">Register</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="tasks.php">Dashboard</a></li>
       </ul>
     </nav>
 
@@ -52,7 +59,7 @@
         
         <h5>TASKS</h5>
 
-        <button onclick="redirect('tasks.html')">
+        <button onclick="redirect('tasks.php')">
         
           <div>
             <img src="assets/icons/right-cheveron.png" class="btn-icon">
@@ -65,7 +72,7 @@
         
         </button>
         
-        <button onclick="redirect('today.html')">
+        <button onclick="redirect('today.php')">
         
           <div>
             <img src="assets/icons/list.png" class="btn-icon">
@@ -78,7 +85,7 @@
         
         </button>
         
-        <button onclick="redirect('notes.html')" class="selected-btn">
+        <button onclick="redirect('notes.php')" class="selected-btn">
         
           <div>
             <img src="assets/icons/note.png" class="btn-icon">
@@ -95,7 +102,7 @@
 
         <h5>LISTS</h5>
 
-        <button onclick="redirect('tasks.html?list=Personal')">
+        <button onclick="redirect('tasks.php?list=Personal')">
         
           <div>
             <img src="assets/icons/person.png" class="btn-icon">
@@ -108,7 +115,7 @@
         
         </button>
         
-        <button onclick="redirect('tasks.html?list=Work')">
+        <button onclick="redirect('tasks.php?list=Work')">
         
           <div>
             <img src="assets/icons/briefcase.png" class="btn-icon">
@@ -121,7 +128,7 @@
         
         </button>
         
-        <button onclick="redirect('tasks.html?list=List+1')">
+        <button onclick="redirect('tasks.php?list=List+1')">
         
           <div>
             <img src="assets/icons/folder.png" class="btn-icon">
