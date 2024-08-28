@@ -12,17 +12,17 @@ session_start();
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/boarding.css">
-  <!-- <link rel="stylesheet" href="css/index.css"> -->
   
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
 
   <title>Focus Flow</title>
+
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
 
 </head>
 

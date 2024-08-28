@@ -38,11 +38,12 @@ else if (isset($_POST['login'])) {
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/boarding.css">
-  <!-- <link rel="stylesheet" href="css/login.css"> -->
   
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
 
   <title>Focus Flow</title>
+
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
 
 </head>
 

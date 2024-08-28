@@ -162,7 +162,9 @@ if (isset($_POST['add_task'])) {
     
     <script src="js/common/dashboard.js"></script>
     
-    <title>Tasks - Focus Flow</title>
+    <title><?php echo ($list['name'] == '' ? 'Dashboard' : $list['name']) ?> - Focus Flow</title>
+
+    <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
     
   </head>
   
@@ -268,13 +270,18 @@ if (isset($_POST['add_task'])) {
       </div>
 
       <?php if (isset($_SESSION['task_details'])) {
-        echo "<script>showPanel()</script>";
         $index = 0;
         foreach ($tasks as $task) {
           if ($task[0] == $_SESSION['task_id']) break;
           $index++;
         }
-        rightPanel($pdo, $tasks[$index]);
+        if (isset($tasks[$index])){
+          echo "<script>showPanel()</script>";
+          rightPanel($pdo, $tasks[$index]);
+        } else {
+          unset($_SESSION['task_details']);
+          unset($_SESSION['task_id']);
+        }
       } ?>
       
     </section>

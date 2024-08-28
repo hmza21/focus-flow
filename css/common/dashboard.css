@@ -292,11 +292,11 @@ input[type="checkbox"]:checked::after {
 
 .panel-background img {
     position: absolute;
-    filter: invert(1);
+    filter: brightness(0.8);
     fill: var(--secondary);
     opacity: 1;
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
 }
 
 .task-item {

@@ -75,8 +75,10 @@ $notes = sql_select($pdo, $query);
   
   <script src="js/common/dashboard.js"></script>
   
-  <title>Tasks - Focus Flow</title>
+  <title>Sticky Notes - Focus Flow</title>
   
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
+
 </head>
 
 <body>

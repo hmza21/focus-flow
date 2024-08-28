@@ -49,11 +49,12 @@ else if (isset($_POST['register'])) {
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/boarding.css">
-  <!-- <link rel="stylesheet" href="css/register.css"> -->
   
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
 
   <title>Focus Flow</title>
+
+  <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
 
 </head>
 
