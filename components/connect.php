@@ -7,7 +7,7 @@
 
 $host = 'localhost';
 $db = 'focusflow';
-$user = 'root';
-$pass = '';
+$user = 'hamza';
+$pass = '0619';
 
 $pdo = new PDO("mysql:host=$host;dbname=$db", $user, $pass);
