@@ -61,6 +61,7 @@ $notes = sql_select($pdo, $query);
   
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Organize your tasks and notes with ease in Focus Flow, completely for free!">
   
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
