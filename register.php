@@ -51,6 +51,7 @@ else if (isset($_POST['register'])) {
 
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
+  <link rel="stylesheet" href="css/responsive/boarding.css">
   <link rel="stylesheet" href="css/common/boarding.css">
   
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
@@ -69,7 +70,7 @@ else if (isset($_POST['register'])) {
   
   <main id="content">
 
-    <section>
+    <section id="logo-container">
       <img src="assets/images/bg_1.jpg" alt="Background" class="windowed-background">
       <h1 class="logo"><a href="index.php">Focus Flow</a></h1>
     </section>

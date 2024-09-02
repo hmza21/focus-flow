@@ -66,6 +66,7 @@ $notes = sql_select($pdo, $query);
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/dashboard.css">
   <link rel="stylesheet" href="css/notes.css">
+  <link rel="stylesheet" href="css/responsive/notes.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   
@@ -73,7 +74,7 @@ $notes = sql_select($pdo, $query);
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
   
-  <script src="js/common/dashboard.js"></script>
+  <script src="js/notes.js"></script>
   
   <title>Sticky Notes - Focus Flow</title>
   
@@ -93,7 +94,7 @@ $notes = sql_select($pdo, $query);
 
       <div class="top">
         <h3 class="section-header">Focus Flow</h3>
-        <i class="bi bi-chevron-double-right"></i>
+        <button type="button" id="big-menu" onclick="toggleLeftPanel()"><img src="assets/icons/menu.svg" alt="Menu"></button>
       </div>
 
       <div>
@@ -148,6 +149,7 @@ $notes = sql_select($pdo, $query);
     <section class="sidebar" id="right">
       
       <div class="top">
+        <button type="button" id="big-menu" onclick="toggleLeftPanel()"><img src="assets/icons/menu.svg" alt="Menu"></button>
         <h2 class="section-header">Sticky Notes</h2>
       </div>
 
@@ -168,8 +170,6 @@ $notes = sql_select($pdo, $query);
   </main>
 
   <?php require 'components/footer.php'; ?>
-
-  <script src="js/notes.js"></script>
 
 </body>
 

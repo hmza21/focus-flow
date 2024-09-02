@@ -348,3 +348,8 @@ input[type="checkbox"]:checked::after {
     background-color: rgb(228, 88, 88);
     color: var(--tertiary-foreground);
 }
+
+#big-menu img {
+    filter: invert(1);
+    width: 2em;
+}

@@ -15,6 +15,7 @@ session_start();
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
   <link rel="stylesheet" href="css/common/boarding.css">
+  <link rel="stylesheet" href="css/responsive/boarding.css">
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -34,7 +35,7 @@ session_start();
   
   <main id="content">
 
-    <section>
+    <section id="logo-container">
       <img src="assets/images/bg_1.jpg" alt="Background" class="windowed-background">
       <h1 class="logo"><a href="index.php">Focus Flow</a></h1>
     </section>

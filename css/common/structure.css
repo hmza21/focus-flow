@@ -7,6 +7,7 @@ Styling for header and footer.
 #default-header, #default-footer {
     font-family: "Fredoka";
 }
+
 #default-header {
     display: flex;
     flex-direction: row;

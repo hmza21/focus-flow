@@ -152,6 +152,7 @@ if (isset($_POST['add_task'])) {
     
     <link rel="stylesheet" href="css/common/base.css">
     <link rel="stylesheet" href="css/common/structure.css">
+    <link rel="stylesheet" href="css/responsive/dashboard.css">
     <link rel="stylesheet" href="css/common/dashboard.css">
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -159,9 +160,9 @@ if (isset($_POST['add_task'])) {
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
-    
+      
     <script src="js/common/dashboard.js"></script>
-    
+
     <title><?php echo ($list['name'] == '' ? 'Dashboard' : $list['name']) ?> - Focus Flow</title>
 
     <link rel="shortcut icon" href="assets/icons/favicon.ico" type="image/x-icon">
@@ -180,7 +181,7 @@ if (isset($_POST['add_task'])) {
 
       <div class="top">
         <h3 class="section-header">Focus Flow</h3>
-        <i class="bi bi-chevron-double-right"></i>
+        <button type="button" id="big-menu" onclick="toggleLeftPanel()"><img src="assets/icons/menu.svg" alt="Menu"></button>
       </div>
 
       <div>
@@ -235,6 +236,7 @@ if (isset($_POST['add_task'])) {
     <section id="middle">
       
       <div class="top">
+        <button type="button" id="big-menu" onclick="toggleLeftPanel()"><img src="assets/icons/menu.svg" alt="Menu"></button>
         <h2 class="section-header">
           <?php
             if ($list['name'] === "") echo "All Tasks";
@@ -289,7 +291,6 @@ if (isset($_POST['add_task'])) {
   </main>
 
   <?php require 'components/footer.php'; ?>
-
 
 </body>
 
