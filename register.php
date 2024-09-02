@@ -52,8 +52,8 @@ else if (isset($_POST['register'])) {
 
   <link rel="stylesheet" href="css/common/base.css">
   <link rel="stylesheet" href="css/common/structure.css">
-  <link rel="stylesheet" href="css/responsive/boarding.css">
   <link rel="stylesheet" href="css/common/boarding.css">
+  <link rel="stylesheet" href="css/responsive/boarding.css">
   
   <link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
 
